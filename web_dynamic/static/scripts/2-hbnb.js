@@ -1,17 +1,20 @@
-$(document).ready();
+$(document).ready(init);
 
-const amenity_ids = {};
-$('input[type=checkbox]').change(function () {
-  if ($(this).prop('checked')) {
-    amenity_ids[$(this).attr('data-id')] = $(this).attr('data-name');
-  } else if (!$(this).prop('checked')) {
-    delete amenity_ids[$(this).attr('data-id')];
-  }
-    if (!Object.keys(amenity_ids).length===0){
-	console.log(amenity_ids);
+function init () {
+  const amenity_ids = {};
+  $('input[type=checkbox]').change(function () {
+    if ($(this).prop('checked')) {
+      amenity_ids[$(this).attr('data-id')] = $(this).attr('data-name');
+    } else if (!$(this).prop('checked')) {
+      delete amenity_ids[$(this).attr('data-id')];
     }
-    $('.amenities h4').text(Object.keys(amenity_ids).sort().join(', '));
-});
+    if (Objects.keys(amenity_ids).length === 0) {
+      $('.amenities h4').html('&nbsp');
+    } else {
+      $('.amenities h4').text(Object.values(amenity_ids).sort().join(', '));
+    }
+  });
+}
 
 apiStatus();
 function apiStatus () {
