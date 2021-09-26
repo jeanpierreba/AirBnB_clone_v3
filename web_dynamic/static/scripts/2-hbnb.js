@@ -11,8 +11,7 @@ function init () {
     if (Object.values(amenity_ids).length === 0) {
       $('.amenities h4').html('&nbsp');
     } else {
-      const names = Object.values(amenity_ids);
-      $('.amenities h4').html(names.sort().join(', '));
+      $('.amenities h4').text(Object.keys(amenity_ids).join(', '));
     }
   });
   apiStatus();
