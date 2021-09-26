@@ -7,7 +7,7 @@ $('input[type=checkbox]').change(function () {
   } else if (!$(this).prop('checked')) {
     delete amenity_ids[$(this).attr('data-id')];
   }
-  $('.amenities h4').text(Object.keys(amenity_ids).join(', '));
+  $('.amenities h4').text(Object.values(amenity_ids).join(', '));
 });
 
 apiStatus();

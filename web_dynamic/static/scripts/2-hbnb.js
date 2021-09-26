@@ -1,4 +1,4 @@
-$(document).ready(init);
+$(document).ready();
 
 const amenity_ids = {};
 $('input[type=checkbox]').change(function () {
@@ -7,7 +7,10 @@ $('input[type=checkbox]').change(function () {
   } else if (!$(this).prop('checked')) {
     delete amenity_ids[$(this).attr('data-id')];
   }
-  $('.amenities h4').text(Object.keys(amenity_ids).join(', '));
+    if (!Object.keys(amenity_ids).length===0){
+	console.log(amenity_ids);
+    }
+    $('.amenities h4').text(Object.keys(amenity_ids).sort().join(', '));
 });
 
 apiStatus();
