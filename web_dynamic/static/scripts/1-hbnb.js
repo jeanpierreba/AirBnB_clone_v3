@@ -5,7 +5,7 @@ function init () {
   $('input[type=checkbox]').change(function () {
     if ($(this).is(':checked')) {
       amenity_ids[$(this).data('id')] = $(this).data('name');
-    } else if (!$(this).is('(:checked)')) {
+    } else if (!$(this).is(':checked')) {
       delete amenity_ids[$(this).data('id')];
     }
     if (Object.values(amenity_ids).length === 0) {
